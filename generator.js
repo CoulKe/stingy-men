@@ -54,6 +54,6 @@ function draw(e) {
 function downloadImage(dataSrc, filename = 'untitled.jpeg') {
     let a = document.querySelector('#download_link')
     a.href = dataSrc
-    a.download = filename
+    a.download = 'id_'+ filename
     a.click();
 }
