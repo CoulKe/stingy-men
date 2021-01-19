@@ -22,7 +22,7 @@ function draw(e) {
     let name = document.querySelector('#name');
     let position = document.querySelector('#position');
     let branch = document.querySelector('#branch');
-    let idNo = Math.floor(Math.random() * 80000000); 
+    let idNo = Math.floor(Math.random() * 80000000);
 
   e.preventDefault();
   let myCanvas = document.querySelector("canvas");

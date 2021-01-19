@@ -18,22 +18,24 @@
     </noscript>
     <h1 id="intro">Hello stingy man</h1>
     <div class="container">
-        <p>Welcome to our platform, to generate your id fill the following form and submit.</p>
+        <p>Welcome to our platform, to generate your id fill the following form and submit. Contact me <a href="https://thatcoul.netlify.app/#contactForm">here</a></p>
+        <p id="credits">Credits: template from <a href="http://www.musictori.com/2021/01/easy-template-for-stingy-men.html?m=1">musictori</a></p>
         <form>
+            <h1 style="text-align: center;">Fill form</h1>
             <label for="name">Name: </label> <br>
-            <input type="text" name="name" id="name"> <br>
+            <input type="text" name="name" id="name" required> <br>
             <label for="position">Position:</label> <br>
-            <input type="text" name="position" id="position"> <br>
+            <input type="text" name="position" id="position" required> <br>
             <label for="branch">Branch:</label> <br>
-            <input type="text" name="branch" id="branch"> <br>
+            <input type="text" name="branch" id="branch" required> <br>
             <label for="upload">Profile picture:</label> <br>
-            <input type="file" name="upload" id="upload"> <br>
-            <input type="submit" id="submit" value="Download ID">
+            <input type="file" name="upload" id="upload" required> <br>
+            <input type="submit" id="submit" value="Download ID"> <a id="share" href="whatsapp://send?text=Hey%20stingy%20man%20get%20your%20id%20here%20https://stingy-men.vercel.app/">Share link</a>
         </form>
         <a href="" id="download_link" hidden>Download</a>
         <img src="" alt="" id="hidden-img">
-        <img src="./template.jpg" alt="template" style="border: 2px solid red;" id="hidden-id">
-        <canvas style="border: 2px solid red;"></canvas>
+        <img src="./template.jpg" alt="template" id="hidden-id">
+        <canvas></canvas>
     </div>
     <script src="./generator.js"></script>
     <footer>Made with ❤ by <a href="https://thatcoul.netlify.app">Luteya Coulston</a> </footer>
@@ -48,6 +50,10 @@
     p{
         text-align: left;
         width: 100%;
+        margin-bottom: 0px;
+    }
+    #credits{
+        margin: 0px;
     }
     #nojs {
         background-color: rgb(101, 238, 101);
@@ -65,9 +71,6 @@
         background-color: #000;
         height: 50px;
         color: #fff;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -100,8 +103,10 @@
     input[type=text] {
         padding: 0.4rem;
     }
-
-    input[type=submit] {
+    #share{
+        text-decoration: none;
+    }
+    input[type=submit], #share {
         color: #fff;
         background-color: #000;
         outline: none;
@@ -116,12 +121,15 @@
         cursor: pointer;
     }
 
-    /* canvas {
+    canvas {
         display: none;
-    } */
-    #hidden-img{
-        width: 40px;
-        height: 40px;
     }
-
+    img{
+        display: none;
+    }
+@media (min-width: 700px){
+    p{
+        text-align: center;
+    }
+}
 </style>
