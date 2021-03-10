@@ -1,8 +1,8 @@
 var fileElement = document.querySelector("#upload");
-fileElement.addEventListener("change", saveImage);
+fileElement.addEventListener("change", saveId);
 var submit = document.querySelector("#submit");
 submit.addEventListener("click", draw);
-function saveImage() {
+function saveId() {
   var image = document.querySelector("#hidden-img");
   //Select only the first image
   var uploadedFile = fileElement.files[0];

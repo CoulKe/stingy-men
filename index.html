@@ -4,9 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Description" content="Stingy Men Association ID generator">
+    <meta name="Description" content="Stingy Men Association Kenya (SMAK) ID/ Certificate generator">
     <meta name="Keywords" content="Stingy Men Association ID generator, Stingy Men Association ID Maker">
     <meta name="Author" content="Luteya Coulston">
+    <meta property="og:title" content="Stingy men association Id/ Certificate generator." />
+    <meta property="og:description" content="Stingy Men Association Kenya (SMAK) ID/ Certificate generator" />
+    <meta property="og:type" content="app" />
+    <meta property="og:site_name" content="Stingy-men" />
+    <meta property="og:image" content="./stingy-cert.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content="./stingy-cert.png" />
     <title>Stingy Men Association</title>
 </head>
 
@@ -16,7 +25,7 @@
         function supported() {
             var canvas2DSupported = !!window.CanvasRenderingContext2D;
             if (!canvas2DSupported) {
-                alert("Your browser isn't supported, update it or use another");
+                alert("Sorry stingy man, your browser isn't supported, update it or use another");
             }
         }
     </script>
@@ -26,12 +35,17 @@
         </div>
     </noscript>
     <h1 id="intro">Hello stingy man</h1>
+    <nav>
+        <button href='/' id="getId">Get ID</button> |
+        <button href='/cert.html' id="getCert">GET CERTIFICATE</button>
+    </nav>
+
     <div class="container">
-        <p>Welcome to our platform, to generate your id fill the following form and submit. Contact me <a
+        <p>Welcome to our platform, to generate your id/ card fill the form provided. Contact me <a
                 href="https://thatcoul.netlify.app/#contactForm">here</a></p>
-        <p id="credits">Credits: template from <a
+        <p id="credits">Credits: Id template from <a
                 href="http://www.musictori.com/2021/01/easy-template-for-stingy-men.html?m=1">musictori</a></p>
-        <form>
+        <form id="idForm">
             <h1 style="text-align: center;">Fill form</h1>
             <label for="name">Name: </label> <br>
             <input type="text" name="name" id="name" required> <br>
@@ -42,15 +56,25 @@
             <label for="upload">Profile picture:</label> <br>
             <input type="file" name="upload" id="upload" required> <br>
             <input type="submit" id="submit" value="Download ID"> <a id="share"
-                href="whatsapp://send?text=Hey%20stingy%20man%20get%20your%20id%20here%20https://stingy-men.vercel.app/">Share
+                href="whatsapp://send?text=Hey%20stingy%20man%20get%20your%20id%20and%20cert%20here%20https://stingy-men.vercel.app/">Share
                 link</a>
+        </form>
+        <form id="certForm">
+            <h1>Certificate form</h1>
+            <label for="certName">What's your name?</label> <br>
+            <input type="text" id="certName"> <br>
+            <input type="submit" id="certSubmit" value="Download your certificate">
         </form>
         <a href="" id="download_link" hidden>Download</a>
         <img src="" alt="" id="hidden-img">
+        <img src="" alt="" id="hidden-cert">
         <img src="./template.jpg" alt="template" id="hidden-id">
+        <img src="./stingy-cert.png" alt="cert" id="init-cert">
         <canvas></canvas>
     </div>
     <script src="./generator.js"></script>
+    <script src="./cert.js"></script>
+    <script src="./general.js"></script>
     <footer>Made with ❤ by <a href="https://thatcoul.netlify.app">Luteya Coulston</a> </footer>
 </body>
 
@@ -59,6 +83,25 @@
     body {
         margin: 0px;
         font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    nav {
+        background-color: #000;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+    }
+
+    button {
+        color: #fff;
+        margin: auto;
+        border: none;
+        padding: 4px;
+        background-color: transparent;
     }
 
     p {
@@ -113,6 +156,10 @@
 
     form {
         padding: 1rem;
+    }
+
+    #certForm {
+        display: none;
     }
 
     label {
